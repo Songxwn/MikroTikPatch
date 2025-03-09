@@ -93,6 +93,7 @@ jobs:
       id: get_latest
       run: |
         echo $(uname -a)
+        MIKRO_UPGRADE_URL="download.mikrotik.com"
         LATEST_VERSION=${{ github.event.inputs.version }}
         if [ -z  "$_LATEST_VERSION" ]; then
           LATEST_VERSION=$(wget -nv -O - https://${{ env.MIKRO_UPGRADE_URL }}/routeros/NEWESTa7.${{ matrix.channel }} | cut -d ' ' -f1)
